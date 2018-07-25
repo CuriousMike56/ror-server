@@ -395,8 +395,7 @@ int main(int argc, char *argv[]) {
             // broadcast our "i'm here" signal
             Messaging::broadcastLAN();
 
-            // sleep a minute
-            Utils::SleepSeconds(60);
+            Utils::SleepSeconds(Config::GetHeartbeatIntervalSec());
         }
     }
 

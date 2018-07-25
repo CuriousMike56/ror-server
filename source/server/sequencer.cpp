@@ -404,7 +404,7 @@ void Sequencer::killerthreadstart() {
     }
 }
 
-void Sequencer::disconnect(int uid, const char *errormsg, bool isError, bool doScriptCallback /*= true*/) {
+void Sequencer::QueueClientForDisconnect(int uid, const char *errormsg, bool isError, bool doScriptCallback /*= true*/) {
     MutexLocker scoped_lock(m_killer_mutex);
     Client *client = this->FindClientById(static_cast<unsigned int>(uid));
     if (client == nullptr) {

@@ -139,7 +139,7 @@ struct ban_t {
     unsigned int uid;           //!< userid
     char ip[40];                //!< ip of banned client
     char nickname[RORNET_MAX_USERNAME_LEN];          //!< Username, this is what they are called to
-    char bannedby_nick[RORNET_MAX_USERNAME_LEN];     //!< Username, this is what they are called to	
+    char bannedby_nick[RORNET_MAX_USERNAME_LEN];     //!< Username, this is what they are called to
     char banmsg[256];           //!< why he got banned
 };
 
@@ -163,8 +163,7 @@ public:
     //! call to start the thread to disconnect clients from the server.
     void killerthreadstart();
 
-    //! queue client for disconenct
-    void disconnect(int pos, const char *error, bool isError = true, bool doScriptCallback = true);
+    void QueueClientForDisconnect(int uid, const char *error, bool isError = true, bool doScriptCallback = true);
 
     void queueMessage(int pos, int type, unsigned int streamid, char *data, unsigned int len);
 
